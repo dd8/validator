@@ -731,7 +731,9 @@ common.attrs.aria.implicit.navigation |= common.attrs.aria.implicit.landmark
 	aria.checkbox =
 		(	aria.role.checkbox
 		&	aria.state.checked #required!
+		&	aria.state.expanded?	# ARIA 1.2 added
 		&	aria.prop.readonly? 	# ARIA 1.1 and 1.2
+		&	aria.prop.required? 	# ARIA 1.2 added
 		)
 		aria.role.checkbox = 
 			attribute role { string "checkbox" }
@@ -1147,6 +1149,7 @@ common.attrs.aria.implicit.navigation |= common.attrs.aria.implicit.landmark
 	aria.menuitemcheckbox =
 		(	aria.role.menuitemcheckbox
 		&	aria.state.checked #required
+		&	aria.state.expanded?	# ARIA 1.2 added
 		&	aria.prop.posinset?		# ARIA 1.1 and 1.2
 		&	aria.prop.setsize?		# ARIA 1.1 and 1.2
 		)
@@ -1167,6 +1170,7 @@ common.attrs.aria.implicit.navigation |= common.attrs.aria.implicit.landmark
 	aria.menuitemradio =
 		(	aria.role.menuitemradio
 		&	aria.state.checked #required
+		&	aria.state.expanded?	# ARIA 1.2 added
 		&	aria.state.selected?
 		&	aria.prop.posinset?
 		&	aria.prop.setsize?
@@ -1329,6 +1333,8 @@ common.attrs.aria.implicit.navigation |= common.attrs.aria.implicit.landmark
 		&	aria.state.expanded?
 		&	aria.prop.colindex?
 		&	aria.prop.rowindex?
+		&	aria.prop.posinset?		# ARIA 1.2 added
+		&	aria.prop.setsize?		# ARIA 1.2 added
 		)
 		aria.role.row = 
 			attribute role { string "row" }
@@ -1412,6 +1418,10 @@ common.attrs.aria.implicit.navigation |= common.attrs.aria.implicit.landmark
 		(	aria.role.separator
 		&	aria.state.expanded?
 		&	aria.prop.orientation?
+		&	aria.prop.valuenow?		# ARIA 1.2 (required if focusable, absent otherwise)
+		&	aria.prop.valuemin?		# ARIA 1.2 (optional if focusable, absent otherwise)
+		&	aria.prop.valuemax?		# ARIA 1.2 (optional if focusable, absent otherwise)
+		&	aria.prop.valuetext?	# ARIA 1.2 (optional if focusable, absent otherwise)
 		)
 		aria.role.separator = 
 			attribute role { string "separator" }
@@ -1497,7 +1507,9 @@ common.attrs.aria.implicit.navigation |= common.attrs.aria.implicit.landmark
 	aria.switch =
 		(	aria.role.switch
 		&	aria.state.checked #required!
+		&	aria.state.expanded?	# ARIA 1.2 added
 		&	aria.prop.readonly? 	# ARIA 1.1 and 1.2
+		&	aria.prop.required? 	# ARIA 1.2 added
 		)
 		aria.role.switch =
 			attribute role { string "switch" }
